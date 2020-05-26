@@ -47,9 +47,9 @@ namespace DiabetesAPI.Controllers
         //4 request access for medical info
         [HttpPost("{drid}")]
         [Route("request/")]
-        public IActionResult request_access_medicalinfo()
+        public IActionResult request_access_medicalinfo(int id, short status)
         {
-            var n = d.request_access_medicalInfo();
+            var n = d.request_access_medicalInfo(id, status);
             return Ok(n);
         }
         //5 get dr posts

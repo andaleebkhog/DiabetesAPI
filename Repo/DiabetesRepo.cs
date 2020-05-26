@@ -198,12 +198,7 @@ namespace DiabetesAPI.Repo
         }
 
         //Andaleeb
-        public PatientDoctorsFollow request_access_medicalInfo(int id, short status)
-        {
-            var x = db.PatientDoctorsFollow.First(a => a.Id == id);
-            x.AccessMedicalInfo = status;
-            return x;
-        }
+        
         List<Questions> IDiabetes.getAnsweredQuestions(int drid)
         {
             var query = from q in db.Questions
@@ -240,6 +235,12 @@ namespace DiabetesAPI.Repo
             db.Doctor.Update(doctor);
             db.SaveChanges();
             return doctor;
+        }
+        public PatientDoctorsFollow request_access_medicalInfo(int id, short status)
+        {
+            var x = db.PatientDoctorsFollow.First(a => a.Id == id);
+            x.AccessMedicalInfo = status;
+            return x;
         }
     }
 }
